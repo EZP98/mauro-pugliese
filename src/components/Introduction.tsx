@@ -1,75 +1,149 @@
-import { IMAGES } from '../lib/constants';
+import { useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { Reveal } from './ui/RevealOnScroll';
-import { LogoSVG } from './ui/LogoSVG';
-import { ButtonFilled } from './ui/Button';
+import TextReveal from './ui/TextReveal';
 
-export function Introduction() {
-  const photos = [
-    { src: IMAGES.cranial, label: "Osteopatia craniale" },
-    { src: IMAGES.baby, label: "Pediatrica" },
-    { src: IMAGES.back, label: "Trattamento" },
-  ];
+const CREDENTIALS: { label: string; detail: string }[] = [
+  { label: "Laurea in Scienze Motorie", detail: "Percorso universitario in ambito motorio e sportivo. Una base scientifica solida per comprendere a fondo la biomeccanica, la fisiologia del movimento e il funzionamento del corpo umano." },
+  { label: "Diplomato AIOT — 6 anni", detail: "Sei anni di formazione full-time presso l'Accademia Italiana di Osteopatia Tradizionale — il percorso più completo e riconosciuto in Italia. Teoria, pratica clinica e tirocinio supervisionato." },
+  { label: "Accademia di Pescara", detail: "Formazione presso la sede storica AIOT di Pescara, punto di riferimento nazionale per l'insegnamento dell'osteopatia. Un ambiente clinico di altissimo livello formativo." },
+  { label: "Diploma Massofisioterapia", detail: "Qualifica sanitaria in massofisioterapia che integra le competenze osteopatiche con tecniche riabilitative manuali. Un doppio profilo professionale per un approccio più completo al paziente." },
+  { label: "Certificato FSC", detail: "Certificazione in Functional Sport Conditioning: preparazione atletica, prevenzione infortuni e recupero funzionale. Ideale per sportivi amatoriali e professionisti." },
+  { label: "Osteopatia Pediatrica", detail: "Formazione specifica per il trattamento di neonati e bambini con tecniche delicatissime e non invasive. Coliche, plagiocefalia, disturbi del sonno — tutto con la massima dolcezza." },
+  { label: "Tecniche BLT", detail: "Balanced Ligamentous Tension: tecnica osteopatica dolce che lavora sui legamenti per riequilibrare le tensioni senza manipolazioni forzate. Il corpo si corregge da solo, io lo guido." },
+  { label: "Fasciale e Viscerale", detail: "Approccio che tratta le fasce connettivali e gli organi interni, agendo sulle cause profonde di dolori e disfunzioni. Spesso il problema non è dove fa male." },
+  { label: "Nessuna tecnica HVLA", detail: "Niente scrocchi o manipolazioni ad alta velocità. Solo tecniche dolci, sicure e rispettose del corpo. Questo significa meno stress per il paziente e risultati più duraturi." },
+];
 
-  const features = [
-    { title: "Trattamenti personalizzati", desc: "Percorsi su misura per ogni livello: dal dolore acuto al benessere continuativo." },
-    { title: "Approccio olistico", desc: "BLT, tecniche fasciali e viscerali. Corpo, respiro e tensioni in un'unica visione." },
-    { title: "In studio a Perugia e Roma", desc: "Due studi facilmente raggiungibili. Consulto telefonico gratuito prima di prenotare." },
-  ];
+function CredentialPills() {
+  const [active, setActive] = useState<number | null>(null);
+  const [hintVisible, setHintVisible] = useState(true);
+
+  const handleClick = (i: number) => {
+    setActive(active === i ? null : i);
+    if (hintVisible) setHintVisible(false);
+  };
 
   return (
-    <section className="bg-white py-20">
+    <div className="mt-10 md:mt-12 max-w-[820px] mx-auto px-4 md:px-10 flex flex-col items-center gap-3 md:gap-4">
+      <div className="flex flex-wrap justify-center gap-2">
+        {CREDENTIALS.map((item, i) => {
+          const isActive = active === i;
+          return (
+            <motion.button
+              key={item.label}
+              type="button"
+              onClick={() => handleClick(i)}
+              initial={{ opacity: 0, scale: 0.85 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-[11px] md:text-[12.5px] font-medium border transition-all duration-200 cursor-pointer"
+              style={{
+                background: isActive ? 'rgba(192,90,40,0.10)' : 'rgba(192,90,40,0.04)',
+                borderColor: isActive ? 'var(--color-brand)' : 'var(--color-border)',
+                color: isActive ? 'var(--color-brand)' : 'var(--color-muted, #867F76)',
+                fontFamily: 'var(--font-dm)',
+              }}
+            >
+              <span
+                className="w-1.5 h-1.5 rounded-full transition-colors duration-200"
+                style={{ background: isActive ? 'var(--color-brand)' : 'rgba(192,90,40,0.4)' }}
+              />
+              {item.label}
+            </motion.button>
+          );
+        })}
+      </div>
+
+      {/* Hint arrow — below pills */}
+      <AnimatePresence>
+        {hintVisible && active === null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0, y: -4 }}
+            transition={{ duration: 0.4, delay: 0.5 }}
+            className="flex flex-col items-center gap-1"
+          >
+            <svg width="16" height="20" viewBox="0 0 16 20" fill="none" style={{ opacity: 0.4 }}>
+              <path d="M8 18 L8 4" stroke="#B5B0A8" strokeWidth="1" strokeDasharray="3 3" />
+              <path d="M4 7 L8 3 L12 7" stroke="#B5B0A8" strokeWidth="1" fill="none" />
+            </svg>
+            <span className="text-[11px]" style={{ color: '#B5B0A8', fontFamily: 'var(--font-dm)' }}>
+              Clicca per scoprire di più
+            </span>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <div className="min-h-[56px] flex items-start justify-center">
+        <AnimatePresence mode="wait">
+          {active !== null && (
+            <motion.p
+              key={active}
+              initial={{ opacity: 0, y: 4 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -4 }}
+              transition={{ duration: 0.25 }}
+              className="text-center text-[13px] md:text-[14px] leading-relaxed max-w-[600px]"
+              style={{
+                color: 'var(--color-muted, #867F76)',
+                fontFamily: 'var(--font-dm)',
+              }}
+            >
+              {CREDENTIALS[active].detail}
+            </motion.p>
+          )}
+        </AnimatePresence>
+      </div>
+    </div>
+  );
+}
+
+export function Introduction() {
+  return (
+    <section id="chi-sono" className="pt-16 pb-10 md:pt-24 md:pb-16">
       <div className="max-w-[1128px] mx-auto px-6 md:px-10">
-        {/* Presentation block */}
-        <div className="relative flex flex-col items-center text-center mb-20">
-          <div className="absolute right-[-80px] top-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-[radial-gradient(circle,rgba(192,90,40,.1)_0%,transparent_70%)] pointer-events-none hidden md:block" />
-
-          <Reveal><LogoSVG /></Reveal>
-          <Reveal delay={1}>
-            <p className="text-[13px] font-medium text-brand tracking-wider mb-6 mt-3" style={{ fontFamily: "var(--font-jakarta)" }}>
+        <div className="relative flex flex-col items-center text-center">
+          <Reveal delay={0.5}>
+            <span
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[12px] font-medium border mb-10"
+              style={{
+                background: 'rgba(192,90,40,0.06)',
+                borderColor: 'var(--color-border)',
+                color: 'var(--color-brand)',
+                fontFamily: 'var(--font-jakarta)',
+              }}
+            >
               Accademia Italiana di Osteopatia
-            </p>
+            </span>
           </Reveal>
-          <Reveal delay={1}>
-            <h2 className="text-[clamp(28px,3.2vw,46px)] font-bold leading-snug text-[#111] max-w-[640px] mb-5" style={{ fontFamily: "var(--font-serif)" }}>
-              Mi chiamo{" "}
-              <span className="text-brand">Mauro Pugliese</span>,
-              sono un osteopata diplomato con una formazione solida
-              in ambito sanitario e un approccio umano alla persona.
-            </h2>
-          </Reveal>
-          <Reveal delay={2}>
-            <p className="text-sm font-medium text-brand tracking-wide mb-12" style={{ fontFamily: "var(--font-jakarta)" }}>
-              osteopata su Perugia e Roma
-            </p>
-          </Reveal>
-
-          <Reveal delay={2} className="w-full">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {photos.map((item, i) => (
-                <div key={i} className="rounded-2xl overflow-hidden h-64 md:h-80">
-                  <img src={item.src} alt={item.label} className="w-full h-full object-cover object-top" />
-                </div>
-              ))}
-            </div>
-          </Reveal>
-        </div>
-
-        {/* Feature cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
-          {features.map((c, i) => (
-            <Reveal key={i} delay={i + 1}>
-              <div className="py-7 border-b border-border">
-                <p className="font-semibold text-sm text-[#111] mb-2.5" style={{ fontFamily: "var(--font-dm)" }}>{c.title}</p>
-                <p className="font-light text-[13.5px] text-muted leading-relaxed" style={{ fontFamily: "var(--font-dm)" }}>{c.desc}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-
-        <div className="flex justify-center">
-          <Reveal><ButtonFilled href="#contatto">Prenota una visita oggi</ButtonFilled></Reveal>
+          <TextReveal
+            text="Mi chiamo Mauro Pugliese, sono un osteopata diplomato con una formazione solida in ambito sanitario e un approccio umano alla persona. Utilizzo il BLT e le tecniche fasciali: metodi dolci che agiscono in profondità senza mai forzare."
+            tag="h2"
+            className="text-[clamp(22px,3vw,42px)] leading-[1.3] max-w-[820px]"
+            style={{
+              fontFamily: 'var(--font-serif)',
+              fontWeight: 400,
+              color: '#6B6860',
+            }}
+            delay={300}
+            highlightWords={{
+              'Mauro': { color: 'var(--color-dark)', fontWeight: 500 },
+              'Pugliese,': { color: 'var(--color-dark)', fontWeight: 500 },
+              'osteopata': { color: 'var(--color-dark)', fontWeight: 500 },
+              'approccio': { color: 'var(--color-dark)', fontWeight: 500 },
+              'umano': { color: 'var(--color-dark)', fontWeight: 500 },
+              'BLT': { color: 'var(--color-dark)', fontWeight: 500 },
+              'tecniche': { color: 'var(--color-dark)', fontWeight: 500 },
+              'fasciali:': { color: 'var(--color-dark)', fontWeight: 500 },
+            }}
+          />
         </div>
       </div>
+
+      <CredentialPills />
     </section>
   );
 }
