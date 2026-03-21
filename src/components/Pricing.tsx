@@ -27,7 +27,7 @@ function PricingCard({ plan: p }: { plan: typeof PLANS[number] }) {
         <p className="text-[13.5px] text-muted-2 leading-relaxed" style={{ fontFamily: "var(--font-dm)" }}>{p.desc}</p>
       </div>
       <div className="mb-5">
-        <ButtonFilled href="#contatto" full>{p.cta}</ButtonFilled>
+        <ButtonFilled href={p.href} full>{p.cta}</ButtonFilled>
       </div>
       <div className="flex flex-col gap-2.5">
         {p.features.map(f => (
@@ -49,8 +49,15 @@ export function Pricing() {
           <Reveal><Pill>Sedute</Pill></Reveal>
           <Reveal delay={1}>
             <h2 className="text-[clamp(26px,3vw,44px)] font-bold text-[#111] text-center leading-tight" style={{ fontFamily: "var(--font-serif)" }}>
-              I nostri percorsi
+              Le mie sedute
             </h2>
+          </Reveal>
+          <Reveal delay={2}>
+            <p className="text-sm text-muted-2 text-center leading-relaxed max-w-[500px] mt-3.5" style={{ fontFamily: "var(--font-dm)" }}>
+              Ogni seduta dura 40–50 minuti ed è pensata su di te.
+              <br />
+              Nessun pacchetto obbligatorio, nessun percorso prestabilito.
+            </p>
           </Reveal>
         </div>
       </div>

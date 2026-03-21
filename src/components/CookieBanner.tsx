@@ -158,10 +158,10 @@ export function CookieBanner() {
               <div className="relative flex flex-col gap-2 px-7 pb-7" style={{ fontFamily: 'var(--font-dm)' }}>
                 <button
                   onClick={accept}
-                  className="w-full h-[48px] text-[14px] font-semibold text-white transition-colors duration-200"
+                  className="w-full h-[52px] text-[14px] font-semibold text-white transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
                   style={{
                     background: 'var(--color-brand, #C05A28)',
-                    borderRadius: 12,
+                    borderRadius: 16,
                   }}
                   onMouseEnter={e => (e.currentTarget.style.background = '#A84D22')}
                   onMouseLeave={e => (e.currentTarget.style.background = 'var(--color-brand, #C05A28)')}

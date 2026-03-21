@@ -1,6 +1,8 @@
 import { IMAGES } from '../lib/constants';
-import { motion } from 'framer-motion';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Star, User } from 'lucide-react';
+import { Reveal } from './ui/RevealOnScroll';
 
 const spring = (delay: number) => ({
   initial: { opacity: 0, y: 20 },
@@ -9,6 +11,13 @@ const spring = (delay: number) => ({
 });
 
 export function Hero5() {
+  const imgRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: imgRef,
+    offset: ['start end', 'end start'],
+  });
+  const imgScale = useTransform(scrollYProgress, [0, 0.5, 1], [1.15, 1.05, 1]);
+
   return (
     <section className="relative w-full pt-28 pb-0 md:pt-36 md:pb-0 overflow-hidden">
       {/* ── Text content ── */}
@@ -100,25 +109,19 @@ export function Hero5() {
       </div>
 
       {/* ── Image ── */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ type: 'spring', bounce: 0, duration: 2.5, delay: 0.5 }}
-        className="relative max-w-[960px] mx-auto px-6 md:px-10 mt-12 md:mt-16"
-      >
-        <div className="relative overflow-hidden rounded-3xl border border-border">
-          <motion.img
-            src={IMAGES.newCvMauro}
-            alt="Dott. Mauro Pugliese — Osteopata"
-            className="w-full block object-cover h-[400px] md:h-[580px]"
-            style={{ objectPosition: 'center top' }}
-            initial={{ scale: 1.06, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            fetchPriority="high"
-          />
-        </div>
-      </motion.div>
+      <div className="relative max-w-[960px] mx-auto px-6 md:px-10 mt-12 md:mt-16">
+        <Reveal delay={3}>
+          <div ref={imgRef} className="relative overflow-hidden rounded-3xl border border-border">
+            <motion.img
+              src={IMAGES.newCvMauro}
+              alt="Dott. Mauro Pugliese — Osteopata"
+              className="w-full block object-cover h-[400px] md:h-[580px]"
+              style={{ objectPosition: 'center top', scale: imgScale }}
+              fetchPriority="high"
+            />
+          </div>
+        </Reveal>
+      </div>
     </section>
   );
 }

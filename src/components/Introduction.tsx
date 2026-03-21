@@ -18,10 +18,18 @@ const CREDENTIALS: { label: string; detail: string }[] = [
 function CredentialPills() {
   const [active, setActive] = useState<number | null>(null);
   const [hintVisible, setHintVisible] = useState(true);
+  const [showDetail, setShowDetail] = useState(false);
 
   const handleClick = (i: number) => {
-    setActive(active === i ? null : i);
-    if (hintVisible) setHintVisible(false);
+    const newActive = active === i ? null : i;
+    setActive(newActive);
+    if (hintVisible) {
+      setHintVisible(false);
+      // Wait for hint exit animation, then show detail
+      setTimeout(() => setShowDetail(true), 350);
+    } else {
+      setShowDetail(true);
+    }
   };
 
   return (
@@ -56,37 +64,37 @@ function CredentialPills() {
         })}
       </div>
 
-      {/* Hint arrow — below pills */}
-      <AnimatePresence>
-        {hintVisible && active === null && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0, y: -4 }}
-            transition={{ duration: 0.4, delay: 0.5 }}
-            className="flex flex-col items-center gap-1"
-          >
-            <svg width="16" height="20" viewBox="0 0 16 20" fill="none" style={{ opacity: 0.4 }}>
-              <path d="M8 18 L8 4" stroke="#B5B0A8" strokeWidth="1" strokeDasharray="3 3" />
-              <path d="M4 7 L8 3 L12 7" stroke="#B5B0A8" strokeWidth="1" fill="none" />
-            </svg>
-            <span className="text-[11px]" style={{ color: '#B5B0A8', fontFamily: 'var(--font-dm)' }}>
-              Clicca per scoprire di più
-            </span>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Fixed-height container for hint + detail text — prevents layout shift */}
+      <div className="relative w-full h-[50px] flex justify-center">
+        <AnimatePresence>
+          {hintVisible && active === null && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="absolute top-0 left-0 right-0 flex flex-col items-center gap-1"
+            >
+              <svg width="16" height="20" viewBox="0 0 16 20" fill="none" style={{ opacity: 0.4 }}>
+                <path d="M8 18 L8 4" stroke="#B5B0A8" strokeWidth="1" strokeDasharray="3 3" />
+                <path d="M4 7 L8 3 L12 7" stroke="#B5B0A8" strokeWidth="1" fill="none" />
+              </svg>
+              <span className="text-[11px]" style={{ color: '#B5B0A8', fontFamily: 'var(--font-dm)' }}>
+                Clicca per scoprire di più
+              </span>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
-      <div className="min-h-[56px] flex items-start justify-center">
         <AnimatePresence mode="wait">
-          {active !== null && (
+          {active !== null && showDetail && (
             <motion.p
               key={active}
               initial={{ opacity: 0, y: 4 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -4 }}
               transition={{ duration: 0.25 }}
-              className="text-center text-[13px] md:text-[14px] leading-relaxed max-w-[600px]"
+              className="absolute top-0 left-0 right-0 text-center text-[13px] md:text-[14px] leading-relaxed max-w-[600px] mx-auto px-4"
               style={{
                 color: 'var(--color-muted, #867F76)',
                 fontFamily: 'var(--font-dm)',

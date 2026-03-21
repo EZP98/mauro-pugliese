@@ -5,49 +5,33 @@ import { Menu, X, ArrowDown } from 'lucide-react';
 // import { LogoSVG } from './ui/LogoSVG';
 
 function AnimatedLogo() {
-  const [expanded, setExpanded] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setExpanded(true), 2000);
-    return () => clearTimeout(timer);
-  }, []);
-
+  const name = "Mauro Pugliese";
   return (
-    <motion.span
-      className="flex items-center gap-1.5 text-[14px] overflow-hidden"
-      style={{ fontFamily: 'var(--font-dm)' }}
-      initial={{ opacity: 0, filter: 'blur(8px)' }}
-      animate={{ opacity: 1, filter: 'blur(0px)' }}
-      transition={{ duration: 1.5, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-    >
+    <span className="flex items-center gap-1.5 text-[14px]" style={{ fontFamily: 'var(--font-dm)' }}>
       <span className="font-semibold whitespace-nowrap" style={{ color: 'var(--color-brand, #C05A28)' }}>
-        <motion.span
-          initial={{ width: 'auto' }}
-          animate={expanded ? { width: 0, opacity: 0 } : {}}
-          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="inline-block overflow-hidden align-bottom"
-        >
-          MP
-        </motion.span>
-        <motion.span
-          initial={{ width: 0, opacity: 0 }}
-          animate={expanded ? { width: 'auto', opacity: 1 } : {}}
-          transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="inline-block overflow-hidden align-bottom"
-        >
-          Mauro Pugliese
-        </motion.span>
+        {name.split('').map((char, i) => (
+          <motion.span
+            key={i}
+            initial={{ opacity: 0, filter: 'blur(8px)', y: 4 }}
+            animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 + i * 0.04, ease: [0.22, 1, 0.36, 1] }}
+            className="inline-block"
+            style={char === ' ' ? { width: '0.25em' } : undefined}
+          >
+            {char === ' ' ? '\u00A0' : char}
+          </motion.span>
+        ))}
       </span>
       <motion.span
-        className="text-[15px] whitespace-nowrap"
-        style={{ color: 'var(--color-muted, #867F76)', fontFamily: 'var(--font-script)' }}
+        className="text-[13px] whitespace-nowrap font-normal"
+        style={{ color: '#B5B0A8', fontFamily: 'var(--font-dm)' }}
         initial={{ opacity: 0 }}
-        animate={expanded ? { opacity: 1 } : {}}
-        transition={{ duration: 0.6, delay: 0.4, ease: 'easeOut' }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 1.4, ease: 'easeOut' }}
       >
         osteopata
       </motion.span>
-    </motion.span>
+    </span>
   );
 }
 
@@ -270,10 +254,10 @@ export function Nav() {
               Mauro Pugliese
             </span>
             <span
-              className="text-[15px] font-normal"
-              style={{ color: 'var(--color-muted, #867F76)', fontFamily: 'var(--font-dm)' }}
+              className="text-[16px] font-normal"
+              style={{ color: '#B5B0A8', fontFamily: 'var(--font-dm)' }}
             >
-              · Osteopata
+              osteopata
             </span>
           </a>
           {NAV_LINKS.map(([label, href]) => (
