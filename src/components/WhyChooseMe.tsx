@@ -39,7 +39,7 @@ export function WhyChooseMe() {
               return (
                 <Reveal key={i} delay={i + 1}>
                   <div className="p-5 border border-border rounded-2xl bg-white h-full">
-                    <div className="w-10 h-10 rounded-full bg-brand/[.10] flex items-center justify-center mb-3">
+                    <div className="w-10 h-10 rounded-full bg-accent/[.22] flex items-center justify-center mb-3">
                       <Icon size={18} className="text-brand" strokeWidth={1.5} />
                     </div>
                     <h3 className="font-medium text-[14px] text-[#111] mb-1.5" style={{ fontFamily: "var(--font-jakarta)" }}>{item.title}</h3>
@@ -59,7 +59,7 @@ export function WhyChooseMe() {
               return (
                 <Reveal key={i} delay={i + 1}>
                   <div className="p-6 border border-border rounded-2xl bg-white hover:border-brand/30 transition-all duration-300">
-                    <div className="w-10 h-10 rounded-full bg-brand/[.10] flex items-center justify-center mb-3.5">
+                    <div className="w-10 h-10 rounded-full bg-accent/[.22] flex items-center justify-center mb-3.5">
                       <Icon size={18} className="text-brand" strokeWidth={1.5} />
                     </div>
                     <h3 className="font-medium text-[15px] text-[#111] mb-2" style={{ fontFamily: "var(--font-jakarta)" }}>{item.title}</h3>
@@ -82,7 +82,7 @@ export function WhyChooseMe() {
               return (
                 <Reveal key={i} delay={i + 2}>
                   <div className="p-6 border border-border rounded-2xl bg-white hover:border-brand/30 transition-all duration-300">
-                    <div className="w-10 h-10 rounded-full bg-brand/[.10] flex items-center justify-center mb-3.5">
+                    <div className="w-10 h-10 rounded-full bg-accent/[.22] flex items-center justify-center mb-3.5">
                       <Icon size={18} className="text-brand" strokeWidth={1.5} />
                     </div>
                     <h3 className="font-medium text-[15px] text-[#111] mb-2" style={{ fontFamily: "var(--font-jakarta)" }}>{item.title}</h3>

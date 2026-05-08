@@ -78,7 +78,7 @@ export function HowItWorks() {
         <motion.div
           className="absolute w-[400px] h-[400px] md:w-[550px] md:h-[550px] rounded-full"
           style={{
-            border: '1px solid var(--color-border, #F0E4D8)',
+            border: '1px solid var(--color-border, #E4D9CC)',
             scale: ring1Scale,
             opacity: ringsOpacity,
           }}
@@ -86,7 +86,7 @@ export function HowItWorks() {
         <motion.div
           className="absolute w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-full"
           style={{
-            border: '1px dashed var(--color-border, #F0E4D8)',
+            border: '1px dashed var(--color-border, #E4D9CC)',
             scale: ring2Scale,
             opacity: ringsOpacity,
           }}
@@ -94,7 +94,7 @@ export function HowItWorks() {
         <motion.div
           className="absolute w-[180px] h-[180px] md:w-[260px] md:h-[260px] rounded-full"
           style={{
-            border: '1px solid var(--color-border, #F0E4D8)',
+            border: '1px solid var(--color-border, #E4D9CC)',
             scale: ring3Scale,
             opacity: ringsOpacity,
           }}
@@ -131,7 +131,7 @@ export function HowItWorks() {
         >
           <path
             d="M1 65.6C44.3 25.5 102.3 1 166 1s121.7 24.5 165 64.6"
-            stroke="var(--color-border, #F0E4D8)"
+            stroke="var(--color-border, #E4D9CC)"
             strokeDasharray="2 5"
           />
           <motion.path
@@ -153,7 +153,7 @@ export function HowItWorks() {
         >
           <path
             d="M1 65.6C44.3 25.5 102.3 1 166 1s121.7 24.5 165 64.6"
-            stroke="var(--color-border, #F0E4D8)"
+            stroke="var(--color-border, #E4D9CC)"
             strokeDasharray="2 5"
           />
           <motion.path
@@ -193,7 +193,7 @@ export function HowItWorks() {
           <Reveal delay={2}>
             <p
               className="text-[15px] leading-relaxed max-w-[520px] mx-auto mt-4"
-              style={{ color: 'var(--color-muted, #867F76)', fontFamily: "var(--font-dm)" }}
+              style={{ color: 'var(--color-muted, var(--color-muted))', fontFamily: "var(--font-dm)" }}
             >
               Dall'appuntamento al trattamento, tutto è pensato per farti sentire a tuo agio. Nessuna fretta, nessuna manipolazione brusca — solo tecniche dolci, ascolto attento e un ambiente accogliente dove il tuo benessere viene prima di tutto.
             </p>
@@ -208,12 +208,12 @@ export function HowItWorks() {
               <Reveal key={i} delay={i * 0.1 + 0.3}>
                 <div className="relative border border-border rounded-2xl p-7 bg-white hover:border-brand/30 group h-full transition-all duration-300">
                   <span className="absolute top-3 right-4 text-[64px] font-black leading-none pointer-events-none select-none" style={{ color: 'var(--color-brand, #9D9287)', opacity: 0.06, fontFamily: "var(--font-dm)" }}>{step.num}</span>
-                  <div className="w-12 h-12 rounded-full bg-brand/[.12] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-12 h-12 rounded-full bg-accent/[.25] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
                     <Icon size={20} className="text-brand" strokeWidth={1.5} />
                   </div>
                   <span className="text-[11px] font-bold tracking-widest uppercase block mb-2" style={{ color: 'var(--color-brand, #9D9287)', fontFamily: "var(--font-jakarta)" }}>Step {step.num}</span>
                   <h3 className="text-[17px] font-bold text-[#111] mb-2" style={{ fontFamily: "var(--font-dm)" }}>{step.title}</h3>
-                  <p className="text-[13.5px] leading-relaxed" style={{ color: 'var(--color-muted, #867F76)', fontFamily: "var(--font-dm)" }}>{step.desc}</p>
+                  <p className="text-[13.5px] leading-relaxed" style={{ color: 'var(--color-muted, var(--color-muted))', fontFamily: "var(--font-dm)" }}>{step.desc}</p>
                 </div>
               </Reveal>
             );
@@ -227,12 +227,12 @@ export function HowItWorks() {
               return (
                 <div key={i} className="relative border border-border rounded-2xl p-7 bg-white w-[280px] shrink-0">
                   <span className="absolute top-3 right-4 text-[64px] font-black leading-none pointer-events-none select-none" style={{ color: 'var(--color-brand, #9D9287)', opacity: 0.06, fontFamily: "var(--font-dm)" }}>{step.num}</span>
-                  <div className="w-12 h-12 rounded-full bg-brand/[.12] flex items-center justify-center mb-5">
+                  <div className="w-12 h-12 rounded-full bg-accent/[.25] flex items-center justify-center mb-5">
                     <Icon size={20} className="text-brand" strokeWidth={1.5} />
                   </div>
                   <span className="text-[11px] font-bold tracking-widest uppercase block mb-2" style={{ color: 'var(--color-brand, #9D9287)', fontFamily: "var(--font-jakarta)" }}>Step {step.num}</span>
                   <h3 className="text-[17px] font-bold text-[#111] mb-2" style={{ fontFamily: "var(--font-dm)" }}>{step.title}</h3>
-                  <p className="text-[13.5px] leading-relaxed" style={{ color: 'var(--color-muted, #867F76)', fontFamily: "var(--font-dm)" }}>{step.desc}</p>
+                  <p className="text-[13.5px] leading-relaxed" style={{ color: 'var(--color-muted, var(--color-muted))', fontFamily: "var(--font-dm)" }}>{step.desc}</p>
                 </div>
               );
             })}

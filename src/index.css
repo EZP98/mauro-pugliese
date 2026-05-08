@@ -1,53 +1,127 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Poligrapher Grotesk';
+  src: url('/fonts/PoligrapherGrotesk-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poligrapher Grotesk';
+  src: url('/fonts/PoligrapherGrotesk-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poligrapher Grotesk';
+  src: url('/fonts/PoligrapherGrotesk-SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poligrapher Grotesk';
+  src: url('/fonts/PoligrapherGrotesk-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poligrapher Grotesk';
+  src: url('/fonts/PoligrapherGrotesk-BoldItalic.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
 @theme {
-  --color-brand: #C05A28;
-  --color-brand-hover: #A04820;
-  --color-border: #E4E0D8;
-  --color-muted: #6B6860;
-  --color-muted-2: #7A7670;
-  --color-muted-3: #8A8680;
+  --color-brand: #D58458;
+  --color-brand-hover: #B16B43;
+  --color-brand-deep: #5C2C12;
+  --color-accent: #F69E6C;
+  --color-accent-hover: #D58458;
+  --color-peach: #F69E6C;
+  --color-terracotta: #D58458;
+  --color-card: #FFFFFF;
+  --color-border: #E7E3E1;
+  --color-muted: #4A3E33;
+  --color-muted-2: #6E5F50;
+  --color-muted-3: #948876;
   --color-dark: #1C1A18;
-  --color-bg: #FFFFFF;
-  --font-dm: 'DM Sans', sans-serif;
-  --font-jakarta: 'Plus Jakarta Sans', sans-serif;
-  --font-serif: 'Playfair Display', serif;
+  --color-bg: #FFF9F3;
+  --color-bg-alt: #F5F2ED;
+  --font-dm: 'Poligrapher Grotesk', sans-serif;
+  --font-jakarta: 'Poligrapher Grotesk', sans-serif;
+  --font-display: 'Poligrapher Grotesk', sans-serif;
+  --font-serif: 'Poligrapher Grotesk', sans-serif;
   --font-cursive: 'Meow Script', cursive;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body, html {
+    font-family: var(--font-dm);
+    background: #FFF9F3;
+    color: #1C1A18;
+    overflow-x: hidden;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  input, select, textarea, button {
+    font-family: inherit;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  textarea:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px white inset !important;
+    -webkit-text-fill-color: #1C1A18 !important;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  ::placeholder {
+    color: rgba(0, 0, 0, 0.38);
+  }
+
+  *:focus {
+    outline: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .leaflet-pane,
+  .leaflet-top,
+  .leaflet-bottom {
+    z-index: 1 !important;
+  }
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: var(--font-dm);
-  background: #FFFFFF;
-  color: #1C1A18;
-  overflow-x: hidden;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-input, select, textarea, button {
-  font-family: inherit;
-}
-
-::placeholder {
-  color: rgba(0, 0, 0, 0.38);
-}
 
 @keyframes fadUp {
   from { opacity: 0; transform: translateY(40px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes map-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.25; }
+  50% { transform: scale(1.8); opacity: 0; }
 }
 
 @keyframes ticker-left {
@@ -58,4 +132,9 @@ input, select, textarea, button {
 @keyframes ticker-right {
   from { transform: translateX(-50%); }
   to { transform: translateX(0); }
+}
+
+@keyframes wa-dot {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.3; }
+  30% { transform: translateY(-4px); opacity: 0.8; }
 }

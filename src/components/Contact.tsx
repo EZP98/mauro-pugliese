@@ -84,7 +84,7 @@ export function Contact() {
                 <a
                   key={href}
                   href={href}
-                  className="w-11 h-11 rounded-lg flex items-center justify-center border border-border bg-white text-brand hover:bg-brand/[.10] transition-all"
+                  className="w-11 h-11 rounded-lg flex items-center justify-center border border-border bg-white text-brand hover:bg-accent/[.22] transition-all"
                 >
                   <Icon size={18} />
                 </a>
@@ -163,10 +163,10 @@ export function Contact() {
                   name="privacy"
                   type="checkbox"
                   required
-                  className="mt-1 accent-[#C05A28]"
+                  className="mt-1 accent-[#5C2C12]"
                   onChange={checkValidity}
                 />
-                <span className="text-[11.5px] leading-relaxed" style={{ color: 'var(--color-muted, #867F76)', fontFamily: 'var(--font-dm)' }}>
+                <span className="text-[11.5px] leading-relaxed" style={{ color: 'var(--color-muted, var(--color-muted))', fontFamily: 'var(--font-dm)' }}>
                   Ho letto e accetto la <a href="#/privacy" className="underline hover:text-[#111]">Privacy Policy</a> ai sensi del Regolamento UE 679/2016 (GDPR).
                 </span>
               </label>

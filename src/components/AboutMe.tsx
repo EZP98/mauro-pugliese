@@ -2,6 +2,7 @@ import { Reveal } from './ui/RevealOnScroll';
 import { Pill } from './ui/Pill';
 import { ButtonFilled } from './ui/Button';
 import { Leaf } from 'lucide-react';
+import { IMAGES } from '../lib/constants';
 
 const CREDENTIALS = [
   { title: "Diplomato AIOT", sub: "Accademia Italiana di Osteopatia - 6 anni" },
@@ -11,12 +12,15 @@ const CREDENTIALS = [
 
 export function AboutMe() {
   return (
-    <section className="bg-white">
+    <section className="py-16 md:py-24">
       <div className="max-w-[1128px] mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-2 gap-16 items-stretch">
         <Reveal className="relative min-h-[400px] md:min-h-[560px]">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#D4CEC4] to-[#C0BAB0] overflow-hidden flex items-center justify-center">
-            <span className="text-[96px] italic text-black/[.07]" style={{ fontFamily: "var(--font-serif)" }}>M.P.</span>
-          </div>
+          <img
+            src={IMAGES.mauroPortrait}
+            alt="Dott. Mauro Pugliese - Osteopata"
+            className="absolute inset-0 w-full h-full rounded-2xl object-cover"
+            style={{ objectPosition: '50% 20%' }}
+          />
         </Reveal>
 
         <div className="py-16 md:py-24">
@@ -34,12 +38,12 @@ export function AboutMe() {
             </p>
           </Reveal>
 
-          <div className="flex flex-col gap-6 mb-10">
+          <div className="flex flex-col gap-4 mb-10">
             {CREDENTIALS.map((c, i) => (
               <Reveal key={i} delay={i + 2}>
-                <div className="flex gap-3.5 items-start">
-                  <div className="w-10 h-10 rounded-full bg-black/[.07] flex items-center justify-center shrink-0">
-                    <Leaf size={18} className="text-white" strokeWidth={1.5} />
+                <div className="flex gap-3.5 items-start bg-accent/[.10] rounded-2xl p-4 border border-border">
+                  <div className="w-10 h-10 rounded-full bg-accent/[.22] flex items-center justify-center shrink-0">
+                    <Leaf size={18} className="text-brand" strokeWidth={1.5} />
                   </div>
                   <div>
                     <p className="font-medium text-sm text-[#111] mb-0.5" style={{ fontFamily: "var(--font-jakarta)" }}>{c.title}</p>

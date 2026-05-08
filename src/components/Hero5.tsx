@@ -30,7 +30,7 @@ export function Hero5() {
           <span
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-medium border"
             style={{
-              background: 'rgba(192,90,40,0.08)',
+              background: 'rgba(246,158,108,0.18)',
               borderColor: 'var(--color-border)',
               color: 'var(--color-brand)',
               fontFamily: 'var(--font-dm)',
@@ -86,7 +86,7 @@ export function Hero5() {
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center h-[52px] px-8 text-[14px] font-semibold text-white transition-all hover:scale-[1.02] active:scale-[0.98]"
             style={{
-              background: 'var(--color-brand)',
+              background: 'var(--color-accent)',
               borderRadius: 16,
               fontFamily: 'var(--font-dm)',
             }}

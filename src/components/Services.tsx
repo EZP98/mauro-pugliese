@@ -26,7 +26,7 @@ export function ServicesA() {
                 </div>
                 <div className="md:w-1/2 p-6 md:p-8 flex flex-col justify-center">
                   <h3 className="font-semibold text-[17px] text-[#111] mb-2.5" style={{ fontFamily: "var(--font-dm)" }}>{s.name}</h3>
-                  <p className="text-[13.5px] leading-relaxed" style={{ color: 'var(--color-muted, #867F76)', fontFamily: "var(--font-dm)" }}>{s.desc}</p>
+                  <p className="text-[13.5px] leading-relaxed" style={{ color: 'var(--color-muted, var(--color-muted))', fontFamily: "var(--font-dm)" }}>{s.desc}</p>
                 </div>
               </div>
             </Reveal>
@@ -56,7 +56,7 @@ export function ServicesB() {
                 </div>
                 <div className="md:w-1/2 flex flex-col justify-center py-1 md:px-4">
                   <h3 className="font-semibold text-[17px] text-[#111] mb-2.5" style={{ fontFamily: "var(--font-dm)" }}>{s.name}</h3>
-                  <p className="text-[13.5px] leading-relaxed" style={{ color: 'var(--color-muted, #867F76)', fontFamily: "var(--font-dm)" }}>{s.desc}</p>
+                  <p className="text-[13.5px] leading-relaxed" style={{ color: 'var(--color-muted, var(--color-muted))', fontFamily: "var(--font-dm)" }}>{s.desc}</p>
                 </div>
               </div>
             </Reveal>
@@ -92,7 +92,7 @@ export function ServicesB2() {
                   </div>
                 </div>
                 <h3 className="font-semibold text-[16px] text-[#111] mb-1.5 px-1" style={{ fontFamily: "var(--font-dm)" }}>{s.name}</h3>
-                <p className="text-[13.5px] leading-relaxed px-1" style={{ color: 'var(--color-muted, #867F76)', fontFamily: "var(--font-dm)" }}>{s.desc}</p>
+                <p className="text-[13.5px] leading-relaxed px-1" style={{ color: 'var(--color-muted, var(--color-muted))', fontFamily: "var(--font-dm)" }}>{s.desc}</p>
               </div>
             </Reveal>
           ))}
@@ -116,16 +116,16 @@ export function ServicesC() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-start md:items-center justify-between gap-6 py-6 transition-colors duration-300"
-                style={{ borderBottom: '1px solid var(--color-border, #F0E4D8)' }}
+                style={{ borderBottom: '1px solid var(--color-border, #E4D9CC)' }}
               >
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-1.5">
-                    <div className="w-8 h-8 rounded-full bg-brand/[.10] flex items-center justify-center shrink-0">
+                    <div className="w-8 h-8 rounded-full bg-accent/[.22] flex items-center justify-center shrink-0">
                       {(() => { const Icon = SERVICE_ICONS[i] || User; return <Icon size={16} className="text-brand" strokeWidth={1.5} />; })()}
                     </div>
                     <h3 className="font-semibold text-[17px] text-[#111] group-hover:text-brand transition-colors" style={{ fontFamily: "var(--font-dm)" }}>{s.name}</h3>
                   </div>
-                  <p className="text-[13.5px] leading-relaxed max-w-[500px] ml-[44px]" style={{ color: 'var(--color-muted, #867F76)', fontFamily: "var(--font-dm)" }}>{s.desc}</p>
+                  <p className="text-[13.5px] leading-relaxed max-w-[500px] ml-[44px]" style={{ color: 'var(--color-muted, var(--color-muted))', fontFamily: "var(--font-dm)" }}>{s.desc}</p>
                 </div>
                 {'img' in s && s.img && (
                   <div className="hidden md:block w-[120px] h-[80px] rounded-xl overflow-hidden border border-border shrink-0">
@@ -207,7 +207,7 @@ export function ServicesImageGrid() {
                   </div>
                 </div>
                 <h3 className="font-semibold text-[15px] text-[#111] mb-1.5 px-1" style={{ fontFamily: "var(--font-dm)" }}>{s.name}</h3>
-                <p className="text-[13px] leading-relaxed px-1" style={{ color: 'var(--color-muted, #867F76)', fontFamily: "var(--font-dm)" }}>{s.desc}</p>
+                <p className="text-[13px] leading-relaxed px-1" style={{ color: 'var(--color-muted, var(--color-muted))', fontFamily: "var(--font-dm)" }}>{s.desc}</p>
               </div>
             </Reveal>
           ))}

@@ -49,32 +49,18 @@ function useRoute(): Route {
   return route;
 }
 
-// Warm palette theme
-const theme: React.CSSProperties & Record<string, string> = {
-  '--color-brand': '#C05A28',
-  '--color-brand-hover': '#A84D22',
-  '--color-border': '#F0E4D8',
-  '--color-muted': '#867F76',
-  '--color-muted-2': '#7A7670',
-  '--color-muted-3': '#C05A28',
-  '--color-dark': '#1E1C1A',
-  '--color-bg': '#F8F7F5',
-  '--color-bg-alt': '#EDEAE6',
-  background: '#F8F7F5',
-};
-
 export default function App() {
   const route = useRoute();
 
   // Load tracking scripts if consent was already given
   useEffect(() => { initConsent(); }, []);
 
-  if (route === 'privacy') return <div style={theme}><PrivacyPolicy /></div>;
-  if (route === 'cookie') return <div style={theme}><CookiePolicy /></div>;
+  if (route === 'privacy') return <PrivacyPolicy />;
+  if (route === 'cookie') return <CookiePolicy />;
   if (route === 'preview') return <Preview />;
 
   return (
-    <div style={theme}>
+    <div>
       <CookieBanner />
       <Nav />
       <WhatsAppButton />

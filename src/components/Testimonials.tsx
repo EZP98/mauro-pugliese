@@ -31,7 +31,7 @@ function Avatar({ name }: { name: string; photo: string }) {
   return (
     <div
       className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 text-[13px] font-semibold"
-      style={{ background: 'var(--color-bg-alt, #EDEAE6)', color: 'var(--color-muted, #867F76)', fontFamily: 'var(--font-dm)' }}
+      style={{ background: 'var(--color-bg-alt)', color: 'var(--color-muted)', fontFamily: 'var(--font-display)' }}
     >
       {initial}
     </div>
@@ -40,16 +40,16 @@ function Avatar({ name }: { name: string; photo: string }) {
 
 function TestimonialCard({ t }: { t: typeof TESTIMONIALS[number] }) {
   return (
-    <div className="mb-4 p-5 border border-border rounded-2xl hover:border-brand/30 transition-all duration-300">
+    <div className="mb-4 p-5 bg-card border border-border rounded-2xl hover:border-brand/30 transition-all duration-300">
       <div className="flex items-center gap-2.5 mb-3">
         <Avatar name={t.name} photo={t.photo} />
         <div className="flex-1 min-w-0">
-          <p className="text-[12.5px] font-medium text-[#111] truncate leading-tight" style={{ fontFamily: "var(--font-dm)" }}>{t.name}</p>
-          <span className="text-[10.5px] text-black/35" style={{ fontFamily: "var(--font-dm)" }}>{t.time}</span>
+          <p className="text-[12.5px] font-medium text-[#111] truncate leading-tight" style={{ fontFamily: 'var(--font-display)' }}>{t.name}</p>
+          <span className="text-[10.5px] text-black/35" style={{ fontFamily: 'var(--font-display)' }}>{t.time}</span>
         </div>
       </div>
       <Stars />
-      <p className="text-[12.5px] text-black/65 leading-relaxed" style={{ fontFamily: "var(--font-dm)" }}>
+      <p className="text-[12.5px] text-black/65 leading-relaxed" style={{ fontFamily: 'var(--font-display)' }}>
         "{t.quote}"
       </p>
     </div>
@@ -94,8 +94,8 @@ export function Testimonials() {
             <span
               className="inline-flex items-center gap-2 px-4 py-1 rounded-full text-[11.5px] font-medium tracking-wider mb-5 border text-brand"
               style={{
-                fontFamily: 'var(--font-dm)',
-                background: 'rgba(192,90,40,0.08)',
+                fontFamily: 'var(--font-display)',
+                background: 'rgba(92,44,18,0.08)',
                 borderColor: 'var(--color-border)',
               }}
             >
@@ -104,12 +104,12 @@ export function Testimonials() {
             </span>
           </Reveal>
           <Reveal delay={1}>
-            <h2 className="text-[clamp(26px,3vw,44px)] font-bold text-black leading-tight" style={{ fontFamily: "var(--font-serif)" }}>
+            <h2 className="text-[clamp(26px,3vw,44px)] font-bold text-black leading-tight" style={{ fontFamily: "var(--font-display)" }}>
               Storie vere, risultati reali
             </h2>
           </Reveal>
           <Reveal delay={2}>
-            <p className="text-[15px] leading-relaxed max-w-[520px] mx-auto mt-3.5" style={{ color: 'var(--color-muted, #867F76)', fontFamily: "var(--font-dm)" }}>
+            <p className="text-[15px] leading-relaxed max-w-[520px] mx-auto mt-3.5" style={{ color: 'var(--color-muted)', fontFamily: 'var(--font-display)' }}>
               Oltre 50 recensioni su Google con una media di 5 stelle su 5.
               <br />
               Adulti, bambini, sportivi e donne in gravidanza.
@@ -142,10 +142,10 @@ export function Testimonials() {
               onClick={() => setVisibleCount(c => Math.min(c + LOAD_MORE_COUNT, TESTIMONIALS.length))}
               className="inline-flex items-center gap-2 h-[52px] px-8 text-[14px] font-semibold cursor-pointer border-none outline-none transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
               style={{
-                background: 'var(--color-brand, #C05A28)',
-                color: 'white',
+                background: 'var(--color-accent)',
+                color: '#FFF9F3',
                 borderRadius: 16,
-                fontFamily: "var(--font-dm)",
+                fontFamily: 'var(--font-display)',
               }}
             >
               Mostra altre recensioni
@@ -156,10 +156,10 @@ export function Testimonials() {
               onClick={() => setVisibleCount(initialCount)}
               className="inline-flex items-center gap-2 h-[52px] px-8 text-[14px] font-semibold cursor-pointer border-none outline-none transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
               style={{
-                background: 'var(--color-brand, #C05A28)',
-                color: 'white',
+                background: 'var(--color-accent)',
+                color: '#FFF9F3',
                 borderRadius: 16,
-                fontFamily: "var(--font-dm)",
+                fontFamily: 'var(--font-display)',
               }}
             >
               Mostra meno

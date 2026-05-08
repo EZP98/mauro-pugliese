@@ -8,14 +8,14 @@ function PricingCard({ plan: p }: { plan: typeof PLANS[number] }) {
   return (
     <div className={`rounded-2xl p-7 flex flex-col h-full hover:border-brand/30 transition-all duration-300 ${
       p.popular
-        ? 'border-[1.5px] border-brand bg-brand/[.02]'
+        ? 'border-[1.5px] border-brand bg-accent/[.06]'
         : 'border border-border'
     }`}>
       <div className="flex-1 mb-5">
         <div className="flex items-center gap-2 mb-3.5">
           <p className="text-sm font-medium text-[#3A3835]" style={{ fontFamily: "var(--font-dm)" }}>{p.name}</p>
           {p.popular && (
-            <span className="px-2.5 py-0.5 rounded-full border border-brand/30 bg-brand/[.08] text-[10.5px] text-brand font-medium" style={{ fontFamily: "var(--font-dm)" }}>
+            <span className="px-2.5 py-0.5 rounded-full border border-brand/30 bg-accent/[.18] text-[10.5px] text-brand font-medium" style={{ fontFamily: "var(--font-dm)" }}>
               Più richiesto
             </span>
           )}

@@ -147,7 +147,7 @@ export function CookieBanner() {
                   <a
                     href="#/cookie"
                     className="font-medium underline underline-offset-[3px]"
-                    style={{ color: 'var(--color-brand, #C05A28)' }}
+                    style={{ color: 'var(--color-brand, #5C2C12)' }}
                   >
                     Leggi la Cookie Policy
                   </a>
@@ -160,11 +160,11 @@ export function CookieBanner() {
                   onClick={accept}
                   className="w-full h-[52px] text-[14px] font-semibold text-white transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
                   style={{
-                    background: 'var(--color-brand, #C05A28)',
+                    background: 'var(--color-accent)',
                     borderRadius: 16,
                   }}
-                  onMouseEnter={e => (e.currentTarget.style.background = '#A84D22')}
-                  onMouseLeave={e => (e.currentTarget.style.background = 'var(--color-brand, #C05A28)')}
+                  onMouseEnter={e => (e.currentTarget.style.background = '#401E0C')}
+                  onMouseLeave={e => (e.currentTarget.style.background = 'var(--color-brand, #5C2C12)')}
                 >
                   Accetta tutto
                 </button>

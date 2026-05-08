@@ -40,7 +40,7 @@ export function Footer2() {
         {/* Gradient background */}
         <div
           className="absolute inset-0"
-          style={{ background: 'linear-gradient(180deg, #F0EBE4 0%, #E8E1D8 30%, #F5F2ED 70%, #F8F7F5 100%)' }}
+          style={{ background: 'linear-gradient(180deg, #FDEFE6 0%, #FCE2D3 35%, #FCE2D3 70%, #FFF9F3 100%)' }}
         />
 
         <div className="relative z-10">
@@ -65,7 +65,7 @@ export function Footer2() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center h-[52px] px-8 text-[14px] font-semibold text-white transition-all hover:scale-[1.02] active:scale-[0.98]"
-                  style={{ background: 'var(--color-brand)', fontFamily: "var(--font-dm)", borderRadius: 16 }}
+                  style={{ background: 'var(--color-accent)', fontFamily: "var(--font-dm)", borderRadius: 16 }}
                 >
                   Prenota una visita
                 </a>
@@ -84,7 +84,7 @@ export function Footer2() {
                     Mauro Pugliese
                   </span>
                 </a>
-                <p className="text-[13.5px] leading-relaxed mb-5" style={{ color: '#867F76', fontFamily: "var(--font-dm)" }}>
+                <p className="text-[13.5px] leading-relaxed mb-5" style={{ color: 'var(--color-muted)', fontFamily: "var(--font-dm)" }}>
                   Osteopata diplomato AIOT, certificato FSC. Trattamenti su misura per adulti, sportivi, mamme e bambini.
                 </p>
                 <div className="flex gap-2">
@@ -97,7 +97,7 @@ export function Footer2() {
                       href={href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-11 h-11 rounded-lg flex items-center justify-center border border-border bg-white text-brand hover:bg-brand/[.10] transition-all"
+                      className="w-11 h-11 rounded-lg flex items-center justify-center border border-border bg-white text-brand hover:bg-accent/[.22] transition-all"
                     >
                       <Icon size={18} />
                     </a>
@@ -118,7 +118,7 @@ export function Footer2() {
                         key={label}
                         href={href}
                         className="text-[13.5px] hover:text-[#1E1C1A] transition-colors"
-                        style={{ color: '#867F76', fontFamily: "var(--font-dm)" }}
+                        style={{ color: 'var(--color-muted)', fontFamily: "var(--font-dm)" }}
                       >
                         {label}
                       </a>
@@ -137,7 +137,7 @@ export function Footer2() {
                         key={label}
                         href={href}
                         className="text-[13.5px] hover:text-[#1E1C1A] transition-colors"
-                        style={{ color: '#867F76', fontFamily: "var(--font-dm)" }}
+                        style={{ color: 'var(--color-muted)', fontFamily: "var(--font-dm)" }}
                       >
                         {label}
                       </a>
@@ -160,7 +160,7 @@ export function Footer2() {
                         key={text}
                         href={href}
                         className="flex items-center gap-2.5 text-[13.5px] hover:text-[#1E1C1A] transition-colors"
-                        style={{ color: '#867F76', fontFamily: "var(--font-dm)" }}
+                        style={{ color: 'var(--color-muted)', fontFamily: "var(--font-dm)" }}
                       >
                         <div
                           className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 border border-border bg-white text-brand"
@@ -176,20 +176,20 @@ export function Footer2() {
             </div>
 
             {/* Copyright */}
-            <div className="border-t pt-5 flex flex-col sm:flex-row justify-between items-center gap-3" style={{ borderColor: 'var(--color-border, #F0E4D8)' }}>
-              <p className="text-[12px]" style={{ color: '#867F76', fontFamily: "var(--font-dm)" }}>
+            <div className="border-t pt-5 flex flex-col sm:flex-row justify-between items-center gap-3" style={{ borderColor: 'var(--color-border, #E4D9CC)' }}>
+              <p className="text-[12px]" style={{ color: 'var(--color-muted)', fontFamily: "var(--font-dm)" }}>
                 &copy; 2025 Mauro Pugliese — P.IVA 03337540789 — C.F. PGLMRA86R01B774W
               <br className="sm:hidden" />
               <span className="hidden sm:inline"> — </span>
               Sede legale: Via Niccolò Copernico, 6/A, 06073 Corciano PG
               </p>
-              <div className="flex gap-3 text-[12px]" style={{ color: '#867F76', fontFamily: "var(--font-dm)" }}>
+              <div className="flex gap-3 text-[12px]" style={{ color: 'var(--color-muted)', fontFamily: "var(--font-dm)" }}>
                 <a href="#/privacy" className="hover:text-[#1E1C1A] transition-colors">Privacy Policy</a>
                 <span>|</span>
                 <a href="#/cookie" className="hover:text-[#1E1C1A] transition-colors">Cookie Policy</a>
               </div>
             </div>
-            <div className="text-center mt-4">
+            <div className="text-left mt-4">
               <span className="text-[10px] md:text-[11px]" style={{ color: '#A9A49E', fontFamily: "var(--font-dm)" }}>
                 Sito ideato da{' '}
                 <a
@@ -197,7 +197,7 @@ export function Footer2() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-[#1E1C1A] transition-colors duration-300"
-                  style={{ color: '#867F76' }}
+                  style={{ color: 'var(--color-muted)' }}
                 >
                   Ezio Pappalardo
                 </a>

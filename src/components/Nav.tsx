@@ -8,7 +8,7 @@ function AnimatedLogo() {
   const name = "Mauro Pugliese";
   return (
     <span className="flex items-center gap-1.5 text-[14px]" style={{ fontFamily: 'var(--font-dm)' }}>
-      <span className="font-semibold whitespace-nowrap" style={{ color: 'var(--color-brand, #C05A28)' }}>
+      <span className="font-semibold whitespace-nowrap" style={{ color: 'var(--color-brand)' }}>
         {name.split('').map((char, i) => (
           <motion.span
             key={i}
@@ -23,8 +23,8 @@ function AnimatedLogo() {
         ))}
       </span>
       <motion.span
-        className="text-[13px] whitespace-nowrap font-normal"
-        style={{ color: '#B5B0A8', fontFamily: 'var(--font-dm)' }}
+        className="text-[13px] whitespace-nowrap font-medium"
+        style={{ color: 'var(--color-brand-deep)', fontFamily: 'var(--font-dm)' }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.4, ease: 'easeOut' }}
@@ -75,7 +75,7 @@ export function Nav1() {
             <a
               key={label}
               href={href}
-              className="text-[13px] font-medium transition-colors duration-200 hover:text-[#C05A28]"
+              className="text-[13px] font-medium transition-colors duration-200 hover:text-[#5C2C12]"
               style={{ color: '#2B2625', fontFamily: "var(--font-dm)" }}
             >
               {label}
@@ -87,7 +87,7 @@ export function Nav1() {
         <a
           href="#contatto"
           className="hidden md:inline-flex items-center gap-2 h-10 px-5 text-[13px] font-semibold text-white transition-all duration-200 hover:opacity-90 shrink-0"
-          style={{ background: '#C05A28', fontFamily: "var(--font-dm)", borderRadius: 16 }}
+          style={{ background: 'var(--color-accent)', fontFamily: "var(--font-dm)", borderRadius: 16 }}
         >
           <ArrowDown size={14} strokeWidth={2.5} />
           Contattami subito
@@ -118,7 +118,7 @@ export function Nav1() {
               key={label}
               href={href}
               onClick={() => setMobileOpen(false)}
-              className="text-[14px] font-medium py-2.5 transition-colors hover:text-[#C05A28]"
+              className="text-[14px] font-medium py-2.5 transition-colors hover:text-[#5C2C12]"
               style={{ color: '#2B2625', fontFamily: "var(--font-dm)" }}
             >
               {label}
@@ -128,7 +128,7 @@ export function Nav1() {
             href="#contatto"
             onClick={() => setMobileOpen(false)}
             className="inline-flex items-center justify-center gap-2 h-11 text-[13px] font-semibold text-white mt-2"
-            style={{ background: '#C05A28', fontFamily: "var(--font-dm)", borderRadius: 16 }}
+            style={{ background: 'var(--color-accent)', fontFamily: "var(--font-dm)", borderRadius: 16 }}
           >
             <ArrowDown size={14} strokeWidth={2.5} />
             Contattami subito
@@ -162,7 +162,7 @@ export function Nav() {
       <header
         className="fixed top-0 left-0 right-0 z-50 pointer-events-none"
         style={{
-          background: 'linear-gradient(to bottom, rgba(248,247,245,1) 0%, rgba(248,247,245,0.98) 40%, rgba(248,247,245,0.85) 65%, rgba(248,247,245,0.5) 80%, rgba(248,247,245,0) 100%)',
+          background: 'linear-gradient(to bottom, rgba(255,249,243,1) 0%, rgba(255,249,243,0.98) 40%, rgba(255,249,243,0.85) 65%, rgba(255,249,243,0.5) 80%, rgba(255,249,243,0) 100%)',
           paddingBottom: 40,
         }}
       >
@@ -179,9 +179,9 @@ export function Nav() {
                 key={label}
                 href={href}
                 className="text-[12.5px] font-medium transition-colors duration-200"
-                style={{ color: 'var(--color-muted, #867F76)', fontFamily: 'var(--font-dm)' }}
-                onMouseEnter={e => (e.currentTarget.style.color = 'var(--color-brand, #C05A28)')}
-                onMouseLeave={e => (e.currentTarget.style.color = 'var(--color-muted, #867F76)')}
+                style={{ color: 'var(--color-muted, var(--color-muted))', fontFamily: 'var(--font-dm)' }}
+                onMouseEnter={e => (e.currentTarget.style.color = 'var(--color-brand, #5C2C12)')}
+                onMouseLeave={e => (e.currentTarget.style.color = 'var(--color-muted, var(--color-muted))')}
               >
                 {label}
               </a>
@@ -194,7 +194,7 @@ export function Nav() {
             target="_blank"
             rel="noopener noreferrer"
             className="hidden md:inline-flex items-center h-[36px] px-5 text-[12.5px] font-semibold text-white transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shrink-0"
-            style={{ background: 'var(--color-brand, #C05A28)', fontFamily: 'var(--font-dm)', borderRadius: 16 }}
+            style={{ background: 'var(--color-accent)', fontFamily: 'var(--font-dm)', borderRadius: 16 }}
           >
             Prenota
           </a>
@@ -226,7 +226,7 @@ export function Nav() {
       <div
         className="md:hidden fixed inset-0 z-[70] flex flex-col transition-opacity duration-300"
         style={{
-          background: 'var(--color-bg, #F8F7F5)',
+          background: 'var(--color-bg, #FFF9F3)',
           opacity: mobileOpen ? 1 : 0,
           pointerEvents: mobileOpen ? 'auto' : 'none',
         }}
@@ -249,7 +249,7 @@ export function Nav() {
           <a href="#" className="flex items-center gap-2 mb-6" onClick={() => setMobileOpen(false)}>
             <span
               className="text-[18px] font-semibold"
-              style={{ color: 'var(--color-brand, #C05A28)', fontFamily: 'var(--font-dm)' }}
+              style={{ color: 'var(--color-brand, #5C2C12)', fontFamily: 'var(--font-dm)' }}
             >
               Mauro Pugliese
             </span>
@@ -284,13 +284,13 @@ export function Nav() {
             rel="noopener noreferrer"
             onClick={() => setMobileOpen(false)}
             className="w-full max-w-[280px] inline-flex items-center justify-center h-[50px] text-[14px] font-semibold text-white transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
-            style={{ background: 'var(--color-brand, #C05A28)', fontFamily: 'var(--font-dm)', borderRadius: 16 }}
+            style={{ background: 'var(--color-accent)', fontFamily: 'var(--font-dm)', borderRadius: 16 }}
           >
             Prenota una visita
           </a>
           <span
             className="text-[12px]"
-            style={{ color: 'var(--color-muted, #867F76)', fontFamily: 'var(--font-dm)' }}
+            style={{ color: 'var(--color-muted, var(--color-muted))', fontFamily: 'var(--font-dm)' }}
           >
             Rispondo entro 2 ore
           </span>

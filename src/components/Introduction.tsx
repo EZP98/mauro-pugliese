@@ -50,7 +50,7 @@ function CredentialPills() {
               style={{
                 background: isActive ? 'rgba(192,90,40,0.10)' : 'rgba(192,90,40,0.04)',
                 borderColor: isActive ? 'var(--color-brand)' : 'var(--color-border)',
-                color: isActive ? 'var(--color-brand)' : 'var(--color-muted, #867F76)',
+                color: isActive ? 'var(--color-brand)' : 'var(--color-muted, var(--color-muted))',
                 fontFamily: 'var(--font-dm)',
               }}
             >
@@ -96,7 +96,7 @@ function CredentialPills() {
               transition={{ duration: 0.25 }}
               className="absolute top-0 left-0 right-0 text-center text-[13px] md:text-[14px] leading-relaxed max-w-[600px] mx-auto px-4"
               style={{
-                color: 'var(--color-muted, #867F76)',
+                color: 'var(--color-muted, var(--color-muted))',
                 fontFamily: 'var(--font-dm)',
               }}
             >
@@ -134,18 +134,18 @@ export function Introduction() {
             style={{
               fontFamily: 'var(--font-serif)',
               fontWeight: 400,
-              color: '#6B6860',
+              color: 'var(--color-muted)',
             }}
             delay={300}
             highlightWords={{
-              'Mauro': { color: 'var(--color-dark)', fontWeight: 500 },
-              'Pugliese,': { color: 'var(--color-dark)', fontWeight: 500 },
-              'osteopata': { color: 'var(--color-dark)', fontWeight: 500 },
-              'approccio': { color: 'var(--color-dark)', fontWeight: 500 },
-              'umano': { color: 'var(--color-dark)', fontWeight: 500 },
-              'BLT': { color: 'var(--color-dark)', fontWeight: 500 },
-              'tecniche': { color: 'var(--color-dark)', fontWeight: 500 },
-              'fasciali:': { color: 'var(--color-dark)', fontWeight: 500 },
+              'Mauro': { color: 'var(--color-dark)', fontWeight: 600 },
+              'Pugliese,': { color: 'var(--color-dark)', fontWeight: 600 },
+              'osteopata': { color: 'var(--color-dark)', fontWeight: 600 },
+              'approccio': { color: 'var(--color-dark)', fontWeight: 600 },
+              'umano': { color: 'var(--color-dark)', fontWeight: 600 },
+              'BLT': { color: 'var(--color-dark)', fontWeight: 600 },
+              'tecniche': { color: 'var(--color-dark)', fontWeight: 600 },
+              'fasciali:': { color: 'var(--color-dark)', fontWeight: 600 },
             }}
           />
         </div>

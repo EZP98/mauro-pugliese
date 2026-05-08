@@ -3,18 +3,26 @@ interface ButtonFilledProps {
   href?: string;
   onClick?: (e: React.MouseEvent) => void;
   full?: boolean;
+  type?: 'button' | 'submit';
+  disabled?: boolean;
 }
 
-export function ButtonFilled({ children, href = '#', onClick, full }: ButtonFilledProps) {
+export function ButtonFilled({ children, href, onClick, full, type, disabled }: ButtonFilledProps) {
+  const cls = `inline-flex items-center justify-center h-[52px] px-8 bg-accent hover:bg-accent-hover text-white text-[14px] font-semibold cursor-pointer hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 ${
+    full ? 'w-full' : ''
+  } ${disabled ? 'opacity-60 pointer-events-none' : ''}`;
+  const style = { fontFamily: "var(--font-display)", borderRadius: 16 };
+
+  if (type) {
+    return (
+      <button type={type} disabled={disabled} onClick={onClick} className={cls} style={style}>
+        {children}
+      </button>
+    );
+  }
+
   return (
-    <a
-      href={href}
-      onClick={onClick}
-      className={`inline-block px-7 py-3 bg-brand hover:bg-brand-hover rounded-full text-white text-[13.5px] font-medium cursor-pointer transition-all duration-200 ${
-        full ? 'w-full text-center' : ''
-      }`}
-      style={{ fontFamily: "var(--font-jakarta)" }}
-    >
+    <a href={href || '#'} onClick={onClick} className={cls} style={style}>
       {children}
     </a>
   );
@@ -29,7 +37,7 @@ export function ButtonSecondary({ children, href = '#' }: ButtonSecondaryProps) 
   return (
     <a
       href={href}
-      className="inline-block px-6 py-3 rounded-lg text-brand text-[13.5px] font-medium cursor-pointer transition-colors duration-200 hover:bg-brand/8"
+      className="inline-block px-6 py-3 rounded-lg border border-border text-brand text-[13.5px] font-medium cursor-pointer transition-all duration-300 hover:bg-accent/[.18] hover:border-brand/30"
       style={{ fontFamily: "var(--font-jakarta)" }}
     >
       {children}
