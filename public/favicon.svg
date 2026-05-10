@@ -1,7 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <rect width="64" height="64" rx="12" fill="#F69E6C"/>
-  <text x="32" y="44" text-anchor="middle"
-        font-family="'Playfair Display', Georgia, 'Times New Roman', serif"
-        font-weight="700" font-size="34" fill="#FFFFFF"
-        letter-spacing="-1">MP</text>
+  <g transform="translate(6.000 45.746) scale(0.03927 -0.03927)" fill="#FFFFFF">
+    <path d="M51 -1H199V418L337 109H453L593 424V-1H741V706H597L394 258L195 704L51 706Z"/>
+    <g transform="translate(732 0)">
+      <path d="M199 339V577H320C388 577 428 520 428 468V448C428 397 389 339 320 339ZM51 -1H199V235C244 235 291 234 336 234C511 234 576 346 576 458V471C576 574 499 693 344 704V706H51Z"/>
+    </g>
+  </g>
 </svg>
