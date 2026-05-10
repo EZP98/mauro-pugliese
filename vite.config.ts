@@ -4,4 +4,21 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  build: {
+    target: 'es2022',
+    sourcemap: 'hidden',
+    cssCodeSplit: true,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules/react') || id.includes('node_modules/scheduler')) {
+            return 'react';
+          }
+          if (id.includes('node_modules/framer-motion')) {
+            return 'framer';
+          }
+        },
+      },
+    },
+  },
 })
