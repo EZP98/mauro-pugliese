@@ -64,23 +64,25 @@ export default function App() {
       <CookieBanner />
       <Nav />
       <WhatsAppButton />
-      <Hero5 />
-      <Introduction />
-      <ServicesC />
-      {/* <AboutMe /> */}
-      {/* <Formation /> */}
-      {/* <FirstVisit /> */}
-      <HowItWorks />
-      <Benefits />
-      {/* <FullBleedImage src={IMAGES.newBambino} alt="Osteopatia pediatrica" objectPosition="50% 35%" /> */}
-      <WhyChooseMe />
-      <Gallery />
-      {/* <Bio /> */}
-      <Testimonials />
-      <Locations />
-      <Pricing />
-      <FAQ />
-      <Contact />
+      <main>
+        <Hero5 />
+        <Introduction />
+        <ServicesC />
+        {/* <AboutMe /> */}
+        {/* <Formation /> */}
+        {/* <FirstVisit /> */}
+        <HowItWorks />
+        <Benefits />
+        {/* <FullBleedImage src={IMAGES.newBambino} alt="Osteopatia pediatrica" objectPosition="50% 35%" /> */}
+        <WhyChooseMe />
+        <Gallery />
+        {/* <Bio /> */}
+        <Testimonials />
+        <Locations />
+        <Pricing />
+        <FAQ />
+        <Contact />
+      </main>
       <Footer2 />
     </div>
   );
