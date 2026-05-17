@@ -1,10 +1,11 @@
 import { useEffect, useRef } from 'react';
-import { Navigation, Clock } from 'lucide-react';
+import { Navigation, Clock, Construction } from 'lucide-react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
 interface Sede {
   city: string;
+  studio: string;
   region: 'PG' | 'RM';
   address: string;
   cap: string;
@@ -16,17 +17,8 @@ interface Sede {
 
 const SEDI: Sede[] = [
   {
-    city: 'Corciano',
-    region: 'PG',
-    address: 'Via Niccolò Copernico, 6/A',
-    cap: '06073',
-    fullLine: 'Via Niccolò Copernico, 6/A — 06073 Corciano (PG)',
-    hours: 'Su appuntamento',
-    lat: 43.103,
-    lng: 12.301,
-  },
-  {
     city: 'Perugia',
+    studio: 'MediSport',
     region: 'PG',
     address: 'Str. Pievaiola, 207B/1bis',
     cap: '06132',
@@ -37,15 +29,22 @@ const SEDI: Sede[] = [
   },
   {
     city: 'Roma',
+    studio: 'Prati',
     region: 'RM',
     address: 'Viale G. Mazzini, 119',
     cap: '00195',
-    fullLine: 'Viale G. Mazzini, 119 — Roma (RM)',
+    fullLine: 'Viale G. Mazzini, 119 — 00195 Roma (RM)',
     hours: 'Lun · 09:00 – 19:30',
     lat: 41.9168,
     lng: 12.4623,
   },
 ];
+
+const ELCE = {
+  city: 'Perugia',
+  studio: 'Elce',
+  region: 'PG' as const,
+};
 
 function MiniMap({ lat, lng, name }: { lat: number; lng: number; name: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -125,7 +124,7 @@ export function Locations() {
                   className="text-[19px] font-semibold text-black mb-1.5"
                   style={{ fontFamily: 'var(--font-dm)' }}
                 >
-                  {s.city}
+                  {s.city} — {s.studio}
                 </h3>
                 <p
                   className="text-[14px] text-muted leading-relaxed"
@@ -162,6 +161,70 @@ export function Locations() {
               </a>
             </div>
           ))}
+
+          {/* Elce — in attivazione */}
+          <div
+            className="border border-border rounded-2xl p-5 md:p-6 flex flex-col gap-4"
+            style={{ background: 'var(--color-bg, #FFF9F3)' }}
+          >
+            <div>
+              <p
+                className="text-[13px] uppercase tracking-wider text-brand mb-2"
+                style={{ fontFamily: 'var(--font-jakarta)' }}
+              >
+                {ELCE.region}
+              </p>
+              <h3
+                className="text-[19px] font-semibold text-black mb-1.5"
+                style={{ fontFamily: 'var(--font-dm)' }}
+              >
+                {ELCE.city} — {ELCE.studio}
+              </h3>
+              <p
+                className="text-[14px] text-muted leading-relaxed"
+                style={{ fontFamily: 'var(--font-dm)' }}
+              >
+                Nuovo studio in apertura nella zona Elce di Perugia.
+              </p>
+            </div>
+
+            <div
+              className="flex-1 flex flex-col items-center justify-center gap-2 py-8 px-4 text-center"
+              style={{
+                borderRadius: 12,
+                border: '1px dashed var(--color-border, #E4D9CC)',
+                minHeight: 160,
+                background: 'rgba(246,158,108,0.05)',
+              }}
+            >
+              <Construction size={22} style={{ color: 'var(--color-muted)' }} />
+              <p
+                className="text-[13.5px] font-semibold"
+                style={{ color: 'var(--color-dark, #1E1F24)', fontFamily: 'var(--font-dm)' }}
+              >
+                Sede in attivazione
+              </p>
+              <p
+                className="text-[12px]"
+                style={{ color: 'var(--color-muted)', fontFamily: 'var(--font-dm)' }}
+              >
+                Presto disponibile
+              </p>
+            </div>
+
+            <div
+              className="flex items-center justify-center gap-2 w-full py-2.5 text-[13px] font-semibold"
+              style={{
+                background: 'transparent',
+                border: '1px solid var(--color-border, #E4D9CC)',
+                color: 'var(--color-muted)',
+                borderRadius: 12,
+                fontFamily: 'var(--font-dm)',
+              }}
+            >
+              Disponibile a breve
+            </div>
+          </div>
         </div>
       </div>
     </section>
